@@ -14,3 +14,29 @@ Não Normalizada:
   Curso(ID do estudante, Código do curso, Nome do curso, Turno, Grau, Conceito)
   Enem(ID do estudante, Ano do Enem, Média nota Enem, Redação, Matemática e suas Tecnologias, Linguagens, Códigos e suas Tec, Ciências Natureza e suas Tec, Ciências Humanas e suas Tec)
   Fies(ID do estudante, Semestre do financiamento, Situação Inscrição Fies, Percentual de financiamento, Qtde semestre financiado)
+  
+2FN:
+  Estudantes(ID do estudante, Ano do processo seletivo, Semestre do processo seletivo, Sexo, Data de Nascimento, Etnia/Cor, Pessoa com deficiência, Tipo de escola no ensino médio, Ano conclusão ensino médio, Concluiu curso superior, Professor da rede pública de ensino, Nº de membros Grupo Familiar, Renda familiar mensal bruta, Renda mensal bruta per capita)
+  Região(ID do estudante, UF, Região grupo de preferência, Cod.Microrregião, Microrregião, Cod.Mesorregião, Mesorregião, UF de residência, Município de residência)
+  GP(ID do estudante, Conceito de curso do GP, Área do conhecimento, Subárea do conhecimento)
+  Preferência(ID do estudante, Cod. do Grupo de preferência, Nota Corte Grupo Preferência, Opções de cursos da inscrição)
+  IES(ID do estudante, Código e-MEC da IES, Nome da IES, Organização Acadêmica da IES, Município da IES, UF da IES)
+  Região_oferta(ID do estudante, Código do Local de Oferta, Nome do Local de oferta, Município do Local de Oferta, UF do Local de Oferta)
+  Curso(ID do estudante, Código do curso, Nome do curso, Turno, Grau, Conceito)
+  Enem(ID do estudante, Ano do Enem, Média nota Enem, Redação, Matemática e suas Tecnologias, Linguagens, Códigos e suas Tec, Ciências Natureza e suas Tec, Ciências Humanas e suas Tec)
+  Financiamento_Curso(ID do estudante, Semestre do financiamento, Situação Inscrição Fies, Percentual de financiamento, Qtde semestre financiado)
+  
+3FN:
+  Estudantes(ID do estudante, Ano do processo seletivo, Semestre do processo seletivo, Sexo, Data de Nascimento, Etnia/Cor, Pessoa com deficiência, Tipo de escola no ensino médio, Ano conclusão ensino médio, Concluiu curso superior, Professor da rede pública de ensino, Nº de membros Grupo Familiar, Renda familiar mensal bruta, Renda mensal bruta per capita)
+  Região(ID do estudante, UF, Região grupo de preferência, Cod.Microrregião, Microrregião, Cod.Mesorregião, Mesorregião, UF de residência, Município de residência)
+  TipoEnsino(Tipo de escola no ensino médio, ID do estudante, Ano conclusão ensino médio, Concluiu curso superior, Professor da rede pública de ensino)
+  Renda(Renda familiar mensal bruta, ID do estudante, Renda mensal bruta per capita)
+  Área conhecimento(Área do conhecimento, Subárea do conhecimento)
+  GP(ID do estudante, Conceito de curso do GP, Área do conhecimento, Subárea do conhecimento)
+  Preferência(ID do estudante, Cod. do Grupo de preferência, Nota Corte Grupo Preferência, Opções de cursos da inscrição)
+  IES(ID do estudante, Código e-MEC da IES, Nome da IES, Organização Acadêmica da IES, Município da IES, UF da IES)
+  Região_oferta(ID do estudante, Código do Local de Oferta, Nome do Local de oferta, Município do Local de Oferta, UF do Local de Oferta)
+  Curso(ID do estudante, Código do curso, Nome do curso, Turno, Grau, Conceito)
+  Enem(ID do estudante, Ano do Enem, Média nota Enem, Redação, Matemática e suas Tecnologias, Linguagens, Códigos e suas Tec, Ciências Natureza e suas Tec, Ciências Humanas e suas Tec)
+  Financiamento_Curso(ID do estudante, Semestre do financiamento, Situação Inscrição Fies, Percentual de financiamento, Qtde semestre financiado)
+
