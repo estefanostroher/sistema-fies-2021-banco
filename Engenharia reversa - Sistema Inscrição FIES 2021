@@ -23,8 +23,8 @@ Atributos da tabela:
 	UF;
 	Cod. Microrregião;
 	Microrregião;
-	Cod. Mesoregião;
-	Mesoregião;
+	Cod. Mesorregião;
+	Mesorregião;
 
 	Conceito de curso de GP;
 	Área do conhecimento;
