@@ -1,5 +1,3 @@
-Engenhria reversa - ÑN a 3FN
-
 Atributos da tabela:
 	Ano do processo seletivo;
 	Semestre do processo seletivo;
@@ -74,9 +72,7 @@ Normalização:
 
 1) Forma Não-Normalizada (ÑN)
 
-	Inscrição(Ano do processo seletivo, Semestre do processo seletivo, (ID do estudante, Sexo, Data de nascimento, Etnia/Cor, Deficiência, (Tipo de escola no ensino médio, Ano de conclusão do ensino médio, Concluiu curso superior, Professor de rede pública de ensino, (Nº de membros grupo familiar, Renda familiar mensal bruta, Renda mensal bruta per capita, (UF de residência, Município de residência, (Região grupo de preferência, UF, Cod. Microrregião, Microrregião, Cod. Mesoregião, Mesoregião, (Conceito de curso de GP, Área do conhecimento, Subarea do conhecimento, Cod. do grupo de preferencia, Nota corte grupo de preferencia, Opções de cursos da inscrição, (Nome mantenedora, Natureza jurídica Mantenedora, CNPJ mantenedora, Código e-MEC da mantenedora, (Nome de IES, Cod. e-MEC de IES, Organização acadêmica da IES, Município da IES, UF da IES, (Nome do local de oferta, Código do local de oferta, Município do local de oferta, UF do local de oferta, (Código do curso, Nome do curso, Turno, Grau, Conceito, (Média nota Enem, Ano do Enem, Redação, Matemática e suas Tec, Linguagens, Códigos e suas Tec, Ciências da Natureza e suas Tec, Ciências Humanas e suas Tec, (Situação de inscrição Fies, Percentual de financiamento, Semestre do financiamento, Quantidade de semestre financiado))))))))))))
-
-
+	Inscrição(Ano do processo seletivo, Semestre do processo seletivo, (ID do estudante, Sexo, Data de nascimento, Etnia/Cor, Deficiência, (Tipo de escola no ensino médio, Ano de conclusão do ensino médio, Concluiu curso superior, Professor de rede pública de ensino, (Nº de membros grupo familiar, Renda familiar mensal bruta, Renda mensal bruta per capita, (UF de residência, Município de residência, (Região grupo de preferência, UF, Cod. Microrregião, Microrregião, Cod. Mesorregião, Mesorregião, (Conceito de curso de GP, Área do conhecimento, Subarea do conhecimento, Cod. do grupo de preferencia, Nota corte grupo de preferencia, Opções de cursos da inscrição, (Nome mantenedora, Natureza jurídica Mantenedora, CNPJ mantenedora, Código e-MEC da mantenedora, (Nome de IES, Cod. e-MEC de IES, Organização acadêmica da IES, Município da IES, UF da IES, (Nome do local de oferta, Código do local de oferta, Município do local de oferta, UF do local de oferta, (Código do curso, Nome do curso, Turno, Grau, Conceito, (Média nota Enem, Ano do Enem, Redação, Matemática e suas Tec, Linguagens, Códigos e suas Tec, Ciências da Natureza e suas Tec, Ciências Humanas e suas Tec, (Situação de inscrição Fies, Percentual de financiamento, Semestre do financiamento, Quantidade de semestre financiado))))))))))))
 
 2) Primeira forma normal (1FN)
 	
@@ -90,7 +86,7 @@ Normalização:
 	
 	Residencia(ID do estudante, UF, Município)
 
-	Região(ID do estudante, Cod. Microrregião, Cod. Mesoregião, Grupo de preferência, UF, Microrregião, Mesoregião)
+	Região(ID do estudante, Cod. Microrregião, Cod. Mesorregião, Grupo de preferência, UF, Microrregião, Mesorregião)
 
 	Insc_grupo_pref(ID do estudante, Cod. do grupo de preferencia, Conceito de curso de GP, Área do conhecimento, Subarea do conhecimento, Nota corte grupo de preferencia, Opções de cursos da inscrição)
 
@@ -106,8 +102,6 @@ Normalização:
 
 	Financiamento(ID do estudante, Situação de inscrição, Percentual de financiamento, Semestre, Quantidade de semestre financiado)
 
-
-
 3) Segunda forma normal (2FN)
 
 	Inscrição(ID do estudante, sexo, data de nascimento, etnia/cor, deficiência)
@@ -120,11 +114,11 @@ Normalização:
 	
 	Residencia(ID do estudante, UF, Município)
 
-	Região(ID do estudante, Cod. Microrregião, Cod. Mesoregião, Grupo de preferência, UF)
+	Região(ID do estudante, Cod. Microrregião, Cod. Mesorregião, Grupo de preferência, UF)
 
 	Microrregião(Cod. Microrregião, Microrregião)
 
-	Mesoregião(Cod. Mesoregião, Mesoregião)
+	Mesorregião(Cod. Mesorregião, Mesorregião)
 
 	Insc_grupo_pref(ID do estudante, Cod. do grupo de preferencia, Conceito de curso de GP, Área do conhecimento, Opções de cursos da inscrição)
 
@@ -140,8 +134,6 @@ Normalização:
 
 	Financiamento(ID do estudante, Situação de inscrição, Percentual de financiamento, Semestre, Quantidade de semestre financiado)
 
-
-
 4) Terceira forma normal (3FN)
 
 	Inscrição(ID do estudante, sexo, data de nascimento, etnia/cor, deficiência)
@@ -154,11 +146,11 @@ Normalização:
 
 	Residencia(ID do estudante, UF, Município) – Entidade fraca
 
-	Região(ID do estudante, Cod. Microrregião, Cod. Mesoregião, Grupo de preferência, UF)
+	Região(ID do estudante, Cod. Microrregião, Cod. Mesorregião, Grupo de preferência, UF)
 
 	Microrregião(Cod. Microrregião, Microrregião)
 
-	Mesoregião(Cod. Mesoregião, Mesoregião)
+	Mesorregião(Cod. Mesorregião, Mesorregião)
 
 	Insc_grupo_pref(ID do estudante, Cod. do grupo de preferencia, Conceito de curso de GP, Área do conhecimento, Opções de cursos da inscrição)
 
