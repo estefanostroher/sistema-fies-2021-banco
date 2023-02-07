@@ -139,37 +139,37 @@ Normalização:
 4) Terceira forma normal (3FN)
 
 	Inscrição(ID do estudante, sexo, data de nascimento, etnia/cor, deficiência)
-
-	Proc_seletivo(ID do estudante, ano, semestre) – Entidade fraca
-
-	Estudante(ID do estudante, Tipo de escola no ensino médio, Ano de conclusão do ensino médio, Concluiu curso superior, Professor de rede pública de ensino) – Entidade fraca
-
-	Renda(ID do estudante, Nº de membros, Renda mensal bruta, Renda mensal bruta per capita) – Entidade fraca
-
-	Residencia(ID do estudante, UF, Município) – Entidade fraca
-
+	
+	Proc_seletivo(ID do estudante, ano, semestre)
+	
+	Estudante(ID do estudante, Tipo de escola no ensino médio, Ano de conclusão do ensino médio, Concluiu curso superior, Professor de rede pública de ensino)
+	
+	Renda(ID do estudante, Nº de membros, Renda mensal bruta, Renda mensal bruta per capita)
+	
+	Residencia(ID do estudante, UF, Município)
+	
 	Região(ID do estudante, Cod. Microrregião, Cod. Mesorregião, Grupo de preferência, UF)
-
+	
 	Microrregião(Cod. Microrregião, Microrregião)
-
+	
 	Mesorregião(Cod. Mesorregião, Mesorregião)
-
+	
 	Insc_grupo_pref(ID do estudante, Cod. do grupo de preferencia, Conceito de curso de GP, Área do conhecimento, Opções de cursos da inscrição)
-
-	Grupo_pref(Cod. do grupo de preferencia, Subarea do conhecimento,  Nota de corte)
-
+	
+	Grupo_pref(Cod. do grupo de preferência, Subarea do conhecimento)
+	
 	Subarea(Subárea do conhecimento, Nota de corte)
-
+	
 	Mantenedora(ID do estudante, CNPJ mantenedora, Natureza jurídica, Código e-MEC)
-
+	
 	Nome_mant(Código e-MEC, Nome)
-
+	
 	IES(ID do estudante, Cod. e-MEC, Nome, Organização acadêmica, Município, UF)
-
+	
 	Local_oferta(ID do estudante, Código, Nome, Município, UF)
-
+	
 	Curso(ID do estudante, Código, Nome, Turno, Grau, Conceito)
 	
 	Enem(ID do estudante, Ano, Média nota, Redação, Matemática e suas Tec, Linguagens, Códigos e suas Tec, Ciências da Natureza e suas Tec, Ciências Humanas e suas Tec)
-
+	
 	Financiamento(ID do estudante, Situação de inscrição, Percentual de financiamento, Semestre, Quantidade de semestre financiado)
