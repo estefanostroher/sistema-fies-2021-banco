@@ -131,6 +131,8 @@ Normalização:
 	Local_oferta(ID do estudante, Código, Nome, Município, UF)
 
 	Curso(ID do estudante, Código, Nome, Turno, Grau, Conceito)
+	
+	Enem(ID do estudante, Ano, Média nota, Redação, Matemática e suas Tec, Linguagens, Códigos e suas Tec, Ciências da Natureza e suas Tec, Ciências Humanas e suas Tec)
 
 	Financiamento(ID do estudante, Situação de inscrição, Percentual de financiamento, Semestre, Quantidade de semestre financiado)
 
@@ -167,5 +169,7 @@ Normalização:
 	Local_oferta(ID do estudante, Código, Nome, Município, UF)
 
 	Curso(ID do estudante, Código, Nome, Turno, Grau, Conceito)
+	
+	Enem(ID do estudante, Ano, Média nota, Redação, Matemática e suas Tec, Linguagens, Códigos e suas Tec, Ciências da Natureza e suas Tec, Ciências Humanas e suas Tec)
 
 	Financiamento(ID do estudante, Situação de inscrição, Percentual de financiamento, Semestre, Quantidade de semestre financiado)
