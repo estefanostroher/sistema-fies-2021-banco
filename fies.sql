@@ -97,6 +97,7 @@ create table IES (
 create table local_oferta (
 	codigo int references inscricao,
 	cod_local bigint unique,
+	nome text,
 	municipio text,
 	uf varchar(2),
 	primary key(codigo, cod_local)
