@@ -63,8 +63,7 @@ create table insc_grupo_pref (
 
 create table grupo_pref (
 	cod_grupo_pref int primary key references insc_grupo_pref(cod_grupo_pref),
-	subarea_conhecimento text unique,
-	nota_corte numeric
+	subarea_conhecimento text unique
 );
 
 create table subarea (
