@@ -7,13 +7,13 @@ create table inscricao (
 );
 
 create table proc_seletivo (
-    cod_inscricao int primary key references inscricao(codigo),
+    cod_inscricao int primary key references inscricao,
     ano int,
     semestre int
 );
 
 create table estudante (
-    cod_inscricao int primary key references inscricao(codigo),
+    cod_inscricao int primary key references inscricao,
     escola_ensino_medio text,
     ano_de_conclusao int,
     concluiu_curso_superior varchar(3),
@@ -21,67 +21,67 @@ create table estudante (
 );
 
 create table renda (
-    cod_inscricao int primary key references inscricao(codigo),
+    cod_inscricao int primary key references inscricao,
     n_membros int,
 	mensal numeric,
 	per_capta numeric
 );
 
 create table residencia (
-	cod_inscricao int primary key references inscricao(codigo),
+	cod_inscricao int primary key references inscricao,
 	uf varchar(2),
 	municipio text
 );
 
+create table microrregiao (
+    cod_micro int primary key,
+    microrreg text
+);
+
+create table mesorregiao (
+    cod_meso int primary key,
+    mesorreg text
+);
+
 create table regiao (
-    cod_inscricao int references inscricao(codigo),
-    micro int unique,
-    meso int unique,
+    cod_inscricao int references inscricao,
+    micro int references microrregiao,
+    meso int references mesorregiao,
     grupo_pref text,
     uf text,
     primary key(cod_inscricao, micro, meso)
 );
 
-create table microrregiao (
-    cod_micro int primary key references regiao(micro),
-    microrreg text
+create table subarea (
+    subarea_conhecimento text primary key,
+	nota_corte numeric
 );
 
-create table mesorregiao (
-    cod_meso int primary key references regiao(meso),
-    mesorreg text
+create table grupo_pref (
+    cod_grupo_pref int primary key,
+	subarea text references subarea
 );
 
 create table insc_grupo_pref (
-    cod_inscricao int references inscricao(codigo),
-    cod_grup_pref int unique,
+    cod_inscricao int references inscricao,
+    cod_grup_pref int references grupo_pref,
     conceit_curso int,
     area_conhecimento text,
     opcao_curso int,
     primary key(cod_inscricao, cod_grup_pref)
 );
 
-create table grupo_pref (
-    cod_grupo_pref int primary key references insc_grupo_pref(cod_grup_pref),
-	subarea text unique
-);
-
-create table subarea (
-    subarea_conhecimento text primary key references grupo_pref(subarea),
-	nota_corte numeric
+create table nome_mant (
+    codigo_mec int primary key,
+	nome text
 );
 
 create table mantenedora (
     cod_inscricao int references inscricao(codigo),
     cnpj bigint,
 	nat_juridica text,
-	cod_eMEC int unique,
+	cod_eMEC int references nome_mant,
 	primary key(cod_inscricao, cnpj)
-);
-
-create table nome_mant (
-    codigo_mec int primary key references mantenedora(cod_eMEC),
-	nome text
 );
 
 create table IES (
@@ -154,32 +154,32 @@ insert into residencia values('205517284', 'PR', 'CURITIBA');
 insert into residencia values('205374514', 'BA', 'BOM JESUS DA LAPA');
 insert into residencia values('205519487', 'AM', 'PARINTINS');
 
-insert into regiao values('205517284', '41037', '4110', 'SUL', 'PARANÁ');
-insert into regiao values('205374514', '26017', '2605', 'NORDESTE', 'PERNAMBUCO');
-insert into regiao values('205519487', '41037', '4110', 'SUL', 'PARANÁ'); --Precisa arrumar
-
 insert into microrregiao values('41037', 'CURITIBA');
 insert into microrregiao values('26017', 'RECIFE');
 
 insert into mesorregiao values('4110', 'METROPOLITANA DE CURITIBA');
 insert into mesorregiao values('2605', 'METROPOLITANA DE RECIFE');
 
-insert into insc_grupo_pref values('205517284', '121325', '4', 'CURSOS DA ÁREA DE LICENCIATURA, PEDAGOGIA E NORMAL SUPERIOR', '1');
-insert into insc_grupo_pref values('205374514', '118968', '5', 'CURSOS DA AREA DE SAUDE', '1');
-insert into insc_grupo_pref values('205519487', '121325', '4', 'CURSOS DA ÁREA DE LICENCIATURA, PEDAGOGIA E NORMAL SUPERIOR', '1'); --Precisa arrumar
-
-insert into grupo_pref values('121325', 'ARTES, CIÊNCIAS SOCIAIS E CURSOS RELACIONADOS');
-insert into grupo_pref values('118968', 'MEDICINA');
+insert into regiao values('205517284', '41037', '4110', 'SUL', 'PARANÁ');
+insert into regiao values('205374514', '26017', '2605', 'NORDESTE', 'PERNAMBUCO');
+insert into regiao values('205519487', '41037', '4110', 'SUL', 'PARANÁ');
 
 insert into subarea values('ARTES, CIÊNCIAS SOCIAIS E CURSOS RELACIONADOS', '450.14');
 insert into subarea values('MEDICINA', '758.64');
 
-insert into mantenedora values('205517284', '76659820000151', 'PESSOA JURÍDICA DE DIREITO PRIVADO - SEM FINS LUCRATIVOS - ASSOCIAÇÃO DE UTILIDADE PÚBLICA', '10');
-insert into mantenedora values('205374514', '10847705000100', 'PRIVADA SEM FINS LUCRATIVOS', '11');
-insert into mantenedora values('205519487', '76659820000151', 'PESSOA JURÍDICA DE DIREITO PRIVADO - SEM FINS LUCRATIVOS - ASSOCIAÇÃO DE UTILIDADE PÚBLICA', '10'); --Precisa arrumar
+insert into grupo_pref values('121325', 'ARTES, CIÊNCIAS SOCIAIS E CURSOS RELACIONADOS');
+insert into grupo_pref values('118968', 'MEDICINA');
+
+insert into insc_grupo_pref values('205517284', '121325', '4', 'CURSOS DA ÁREA DE LICENCIATURA, PEDAGOGIA E NORMAL SUPERIOR', '1');
+insert into insc_grupo_pref values('205374514', '118968', '5', 'CURSOS DA AREA DE SAUDE', '1');
+insert into insc_grupo_pref values('205519487', '121325', '4', 'CURSOS DA ÁREA DE LICENCIATURA, PEDAGOGIA E NORMAL SUPERIOR', '1');
 
 insert into nome_mant values('10', 'ASSOCIACAO PARANAENSE DE CULTURA - APC');
 insert into nome_mant values('11', 'CENTRO DE EDUCACAO TECNICA E CULTURAL');
+
+insert into mantenedora values('205517284', '76659820000151', 'PESSOA JURÍDICA DE DIREITO PRIVADO - SEM FINS LUCRATIVOS - ASSOCIAÇÃO DE UTILIDADE PÚBLICA', '10');
+insert into mantenedora values('205374514', '10847705000100', 'PRIVADA SEM FINS LUCRATIVOS', '11');
+insert into mantenedora values('205519487', '76659820000151', 'PESSOA JURÍDICA DE DIREITO PRIVADO - SEM FINS LUCRATIVOS - ASSOCIAÇÃO DE UTILIDADE PÚBLICA', '10');
 
 insert into IES values('205517284', '10', 'PONTIFÍCIA UNIVERSIDADE CATÓLICA DO PARANÁ', 'UNIVERSIDADE', 'CURITIBA', 'PR');
 insert into IES values('205374514', '11', 'UNIVERSIDADE CATÓLICA DE PERNAMBUCO', 'UNIVERSIDADE', 'RECIFE', 'PE');
