@@ -88,19 +88,16 @@ create table IES (
     cod_inscricao int references inscricao(codigo),
 	cod_eMEC int,
 	nome text,
-	org_academica text,
-	municipio text,
-	uf varchar(2),
+	org_academica text, 
 	primary key(cod_inscricao, cod_eMEC)
 );
 
 create table local_oferta (
     cod_inscricao int references inscricao(codigo),
-    cod_local bigint,
+    cod_local int,
 	nome text,
 	municipio text,
-	uf varchar(2),
-	primary key(cod_inscricao, cod_local)
+    primary key(cod_inscricao, cod_local)
 );
 
 create table curso (
@@ -110,7 +107,7 @@ create table curso (
 	turno text,
 	grau text,
 	conceito text,
-	primary key(cod_inscricao, cod_curso)
+    primary key(cod_inscricao, cod_curso)
 );
 
 create table enem (
